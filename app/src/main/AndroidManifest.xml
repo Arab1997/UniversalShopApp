@@ -7,10 +7,10 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".App"
@@ -20,20 +20,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".screen.main.search.SearchProductActivity"></activity>
+
+        <activity android:name=".screen.main.oneId.OneActivity"></activity>
+        <activity android:name=".screen.main.oneId.OneIDActivity" />
         <activity
             android:name=".screen.main.news.NewsActivity"
             android:label="@string/title_activity_news"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".screen.main.aboutapp.AboutAppActivity"></activity>
-        <activity android:name=".screen.main.rating.RatingActivity" />
-        <activity android:name=".screen.main.orders.detail.OrderDetailActivity" />
-        <activity android:name=".screen.main.orders.OrdersActivity" />
+        <activity android:name=".screen.main.aboutapp.AboutAppActivity" />
         <activity android:name=".screen.main.profile.edit.ProfileEditActivity" />
-        <activity android:name=".screen.main.cart.makeorder.preorder.success.SuccessOrderActivity" />
-        <activity android:name=".screen.main.cart.makeorder.preorder.PreOrderActivity" />
-        <activity android:name=".screen.main.webview.AppWebViewActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,25 +37,17 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-<!--        <meta-data-->
-<!--            android:name="com.google.android.maps.v2.API_KEY"-->
-<!--            android:value="@string/google_maps_key" />-->
-
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.maps.v2.API_KEY" -->
+        <!-- android:value="@string/google_maps_key" /> -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".screen.main.cart.makeorder.MakeOrderActivity" />
         <activity android:name=".screen.auth.selectregion.SelectRegionActivity" />
-        <activity android:name=".screen.main.product.ProductListActivity" />
-        <activity android:name=".screen.main.manufacturer.ManufacturerListActivity" />
-        <activity android:name=".screen.auth.SignActivity" />
-        <activity android:name=".screen.main.map.MapActivity" />
-        <activity android:name=".screen.main.actreport.ActReportActivity" />
         <activity
             android:name=".screen.main.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".screen.main.profile.ProfileFragment">
+    tools:context=".screen.main.profile.FaqFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -69,8 +69,8 @@
                             android:textColor="@color/black"
                             android:text="@string/your_data"/>
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="50dp"
+                            android:layout_height="25dp"
                             android:tint="@color/gray_text"
                             android:src="@drawable/ic_chevron_right_black_24dp"/>
                     </LinearLayout>
@@ -80,52 +80,6 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:background="@color/gray_text"/>
-
-                    <LinearLayout
-                        android:id="@+id/lyOrders"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/black"
-                            android:text="@string/history_orders"/>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:tint="@color/gray_text"
-                            android:src="@drawable/ic_chevron_right_black_24dp"/>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:background="@color/gray_text"/>
-
-                    <LinearLayout
-                        android:id="@+id/lyNotifications"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/black"
-                            android:text="@string/notifications"/>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:tint="@color/gray_text"
-                            android:src="@drawable/ic_chevron_right_black_24dp"/>
-                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
@@ -147,34 +101,8 @@
                             android:textColor="@color/black"
                             android:text="@string/language"/>
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:tint="@color/gray_text"
-                            android:src="@drawable/ic_chevron_right_black_24dp"/>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:background="@color/gray_text"/>
-
-                    <LinearLayout
-                        android:id="@+id/lyRating"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:textSize="14sp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/black"
-                            android:text="@string/rating"/>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="50dp"
+                            android:layout_height="25dp"
                             android:tint="@color/gray_text"
                             android:src="@drawable/ic_chevron_right_black_24dp"/>
                     </LinearLayout>
@@ -199,8 +127,8 @@
                             android:textColor="#D50000"
                             android:text="@string/logout"/>
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="50dp"
+                            android:layout_height="25dp"
                             android:tint="@color/gray_text"
                             android:src="@drawable/ic_chevron_right_black_24dp"/>
                     </LinearLayout>

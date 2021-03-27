@@ -75,9 +75,9 @@ class MainViewModel : ViewModel() {
         userRepository.getStoreInfo(progressStoreInfo, error, storeInfoData)
     }
 
-    fun createOrder(order: MakeOrderModel){
+  /*  fun createOrder(order: MakeOrderModel){
         userRepository.createOrder(order, progress, error, createOrderData)
-    }
+    }*/
 
     fun clientInfo(request: ClientInfoRequest){
         userRepository.clientInfo(request, progressClientInfo, error, clientInfoData)
@@ -110,5 +110,7 @@ class MainViewModel : ViewModel() {
     fun getActReport(startDate: String, endDate: String, storeId: String, dollar: Int){
         userRepository.getActReport(startDate, endDate, storeId, dollar, progress, error, actReport)
     }
+
+
 
 }

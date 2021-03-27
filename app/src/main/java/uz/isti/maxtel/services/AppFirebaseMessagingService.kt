@@ -14,13 +14,9 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.google.gson.Gson
 import uz.isti.maxtel.R
-import uz.isti.maxtel.model.FCMModel
 import uz.isti.maxtel.screen.main.MainActivity
 import uz.isti.maxtel.screen.main.news.NewsActivity
-import uz.isti.maxtel.screen.main.orders.OrdersActivity
-import uz.isti.maxtel.screen.main.rating.RatingActivity
 import uz.isti.maxtel.utils.Prefs
 
 
@@ -66,12 +62,9 @@ class AppFirebaseMessagingService : FirebaseMessagingService(){
 
         val defaultSoundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         var intent = Intent(this, MainActivity::class.java)
-        if (type == "news"){
+        if (type == "news") {
             intent = Intent(this, NewsActivity::class.java)
-        }else if (type == "rating"){
-            intent = Intent(this, RatingActivity::class.java)
         }
-
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.putExtra("type", type)
         val pendingIntent = PendingIntent.getActivity(

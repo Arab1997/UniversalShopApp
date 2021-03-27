@@ -2,9 +2,11 @@ package uz.isti.maxtel.utils
 
 class Constants{
     companion object{
-        const val HOST = "http://91.196.77.110:60020/MobilTest/odata/standard.odata/"
-        const val HOST_OFFER = "http://ilm-markaz.uz/perspectives/offers/opencontent/support/"
+      //  const val HOST = "http://91.196.77.110:60020/MobilTest/odata/standard.odata/"
+     //   const val HOST_OFFER = "http://ilm-markaz.uz/perspectives/offers/opencontent/support/"
 
+
+        const val BASE_URL = "http://api.foxitmedia.uz/"
         const val START_FRAGMENT = "start_fragment"
 
         const val EXTRA_DATA = "extra_data"

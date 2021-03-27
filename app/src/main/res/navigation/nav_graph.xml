@@ -3,26 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/sendFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="uz.isti.maxtel.screen.main.news.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/sendFragment"
+        android:name="uz.isti.maxtel.screen.main.send.detail.SendFragment"
+        android:label="@string/first_fragment_label">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_wishlistFragment_to_nav_home"
+            app:destination="@id/actionLanguage" />
     </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="uz.isti.maxtel.screen.main.news.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
 </navigation>

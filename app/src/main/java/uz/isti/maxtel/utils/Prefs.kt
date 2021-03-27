@@ -1,9 +1,11 @@
 package uz.isti.maxtel.utils
 
+import androidx.fragment.app.Fragment
 import com.orhanobut.hawk.Hawk
 import uz.isti.maxtel.App
+import uz.isti.maxtel.R
 import uz.isti.maxtel.model.*
-import uz.isti.maxtel.model.enum.CurrencyEnum
+import uz.isti.maxtel.screen.main.MainActivity
 
 const val PREF_TOKEN = "pref_token"
 const val PREF_USER_SETTINGS = "pref_user_settings"
@@ -17,7 +19,7 @@ const val PREF_LANG = "pref_lang"
 const val PREF_FCM = "pref_fcm"
 const val PREF_SHOW_SALE = "pref_show_sale"
 const val PREF_SERVER_DATA = "pref_server_data"
-
+lateinit var APP_ACTIVITY: MainActivity
 class Prefs {
 
     companion object{
@@ -42,13 +44,6 @@ class Prefs {
             Hawk.put(PREF_LANG, lang)
         }
 
-        fun getCurrency(): CurrencyEnum{
-            return Hawk.get(PREF_DISTRICT, CurrencyEnum.UZS)
-        }
-
-        fun setCurrency(value: CurrencyEnum){
-            Hawk.put(PREF_DISTRICT, value)
-        }
 
         fun setStore(value: StoreSimpleModel){
             Hawk.put(PREF_STORE, value)
@@ -189,3 +184,4 @@ class Prefs {
         }
     }
 }
+

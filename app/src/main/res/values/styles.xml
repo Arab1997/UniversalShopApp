@@ -34,6 +34,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="EditTextBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="boxStrokeColor">@color/colorPrimary</item>
+        <item name="android:windowSoftInputMode">adjustResize|stateVisible</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

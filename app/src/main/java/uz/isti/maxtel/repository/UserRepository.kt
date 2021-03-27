@@ -1,9 +1,12 @@
 package uz.isti.maxtel.repository
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.launch
 import org.greenrobot.eventbus.EventBus
+import retrofit2.HttpException
 import uz.isti.maxtel.api.BaseResponse
 import uz.isti.maxtel.api.CallbackWrapper
 import uz.isti.maxtel.model.*
@@ -11,6 +14,7 @@ import uz.isti.maxtel.model.request.LoginRequest
 import uz.isti.maxtel.model.request.RatingRequest
 import uz.isti.maxtel.utils.Constants
 import uz.isti.maxtel.utils.Prefs
+import java.io.IOException
 
 class UserRepository: BaseRepository() {
 
@@ -226,7 +230,7 @@ class UserRepository: BaseRepository() {
         )
     }
 
-    fun createOrder(request: MakeOrderModel, progress: MutableLiveData<Boolean>, error: MutableLiveData<String>, data: MutableLiveData<PostBronModel>){
+    /*fun createOrder(request: MakeOrderModel, progress: MutableLiveData<Boolean>, error: MutableLiveData<String>, data: MutableLiveData<PostBronModel>){
         compositeDisposable.add(api.createOrder(request)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -245,7 +249,7 @@ class UserRepository: BaseRepository() {
                 }
             })
         )
-    }
+    }*/
 
     fun clientInfo(request: ClientInfoRequest, progress: MutableLiveData<Boolean>, error: MutableLiveData<String>, data: MutableLiveData<ClientInfoModel>){
         compositeDisposable.add(api.getInfo(request)

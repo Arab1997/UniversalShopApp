@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MAXTEL</string>
+    <string name="app_name">Anticor</string>
     <string name="input_mobile_number">Telefon raqamini kiriting...</string>
     <string name="continue_button">DAVOM ETISH</string>
     <string name="number_phone">Telefon raqam:</string>
@@ -51,7 +51,8 @@
     <string name="history_orders">Буюртмалар тарихи</string>
     <string name="your_products">Маҳсулотлар</string>
     <string name="adress_">Манзил:</string>
-    <string name="your_data">Шахсий маълумотлар</string>
+   <!-- <string name="your_data">Шахсий маълумотлар</string>-->
+    <string name="your_data">Asosiy</string>
     <string name="edit">Ўзгартириш</string>
     <string name="select_branch">Филиални танланг:</string>
     <string name="code">Код</string>
@@ -64,7 +65,11 @@
     <string name="share">Улашиш</string>
     <string name="about_app">Илова ҳақида</string>
     <string name="logout">Чиқиш</string>
-    <string name="current_store">Савдо нуқтасини танланг</string>
+    <string name="current_store">MUROJAAT</string>
+    <string name="catgory1">Poraxo‘rlikka duch keldim va pora berdim</string>
+    <string name="category2">Poraxo‘rlikka duch keldim, lekin pora to‘lamaganman.Men korruptsiyaga qarshiman</string>
+    <string name="category3">Poraxo‘rlik bilan bog‘liq bo‘lmagan korrupsiya turiga duch keldim</string>
+    <string name="category4">Men bir davlat agentligi halol xodimi bilan uchrashdim</string>
     <string name="rating">Баҳолаш</string>
     <string name="rating_updated">Рейтинг янгиланди.</string>
     <string name="rating_for_services">Курсатилган хизмат учун:</string>
@@ -94,6 +99,24 @@
     <string name="store___">Омбор:</string>
     <string name="send_button">жўнатиш</string>
     <string name="stores">Омборлар</string>
+    <string name="wishlist">Статистика</string>
+    <string name="title">Ўзбекистон Республикаси Коррупцияга қарши курашиш агентлиги</string>
+    <string name="murojaat">Yuborgan ma\'lumotlaringiz va shaxsingiz sir saqlanishi davlat tomonidan kafolatlanadi</string>
+    <string name="dashboard">Коррупция ҳақида хабар бериш</string>
+    <string name="account">FAQ</string>
+    <string name="tashkilot">Ташкилот</string>
+    <string name="hudud">Ҳудудни танланг</string>
+    <string name="murojaat_matni">Мурожаат матни</string>
+    <string name="pora_hajmi">Пора ҳажми (cўм)</string>
+    <string name="murojat_mazmuni">Мурожаат мазмуни</string>
+    <string name="shahar">Шаҳар</string>
+    <string name="zayavka">Ариза юбориш</string>
+    <string name="murojaat1">Мурожаат</string>
+    <string name="murojaat2">Ko\'p beriladigan savollar</string>
+    <string name="Обращение">Обращение</string>
+    <string name="oneid">OneID</string>
+    <string name="agentlik">Agentlik shaxsi noma\'lum murojaatlarni ko\'rib chiqmasligi mumkin. Ro\'yxatdan o\'tishni tavsiya qilamiz</string>
+
     <string name="products">Махсулотлар</string>
     <string name="cart_">Сават</string>
     <string name="favourites">Танланганлар</string>

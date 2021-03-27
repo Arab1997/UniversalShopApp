@@ -4,7 +4,6 @@ import android.view.View
 import kotlinx.android.synthetic.main.news_item_layout.view.*
 import uz.isti.maxtel.R
 import uz.isti.maxtel.model.NewsModel
-import uz.isti.maxtel.utils.DateUtils
 
 class NewsAdapter(val list: List<NewsModel>): BaseAdapter(list.toMutableList(), R.layout.news_item_layout){
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
@@ -13,7 +12,7 @@ class NewsAdapter(val list: List<NewsModel>): BaseAdapter(list.toMutableList(), 
             item.checked = !item.checked
             notifyItemChanged(position)
         }
-        holder.itemView.tvDate.text = DateUtils.getTimeFromServerTime(item.data)
+      //  holder.itemView.tvDate.text = DateUtils.getTimeFromServerTime(item.data)
         holder.itemView.tvTitle.text = item.title
         holder.itemView.tvComment.text = item.news
         if (item.checked){

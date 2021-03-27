@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
+<!--    <item
         android:id="@+id/actionProfile"
+        android:title="@string/your_data" />-->
+    <item
+        android:id="@+id/main"
         android:title="@string/your_data" />
 
     <item
-        android:id="@+id/actionAct"
-        android:title="@string/act" />
-<!--    <item-->
-<!--        android:id="@+id/actionNotifications"-->
-<!--        android:title="@string/notifications" />-->
+        android:id="@+id/murojaat"
+        android:title="@string/murojaat1" />
+    <item
+        android:id="@+id/faq"
+        android:title="@string/murojaat2" />
     <item
         android:id="@+id/actionLanguage"
         android:title="@string/language" />

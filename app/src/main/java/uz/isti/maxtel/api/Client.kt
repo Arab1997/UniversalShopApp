@@ -46,7 +46,7 @@ object Client {
             return retrofit!!
         }else{
             val data = Prefs.getServerData()
-            initClient(context, data!!.serverHost, data!!.username, data!!.password)
+//            initClient(context, data!!.serverHost, data!!.username, data!!.password)
             return retrofit!!
         }
     }

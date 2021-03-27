@@ -4,7 +4,6 @@ import android.view.View
 import kotlinx.android.synthetic.main.product_item_layout.view.*
 import uz.isti.maxtel.App
 import uz.isti.maxtel.R
-import uz.isti.maxtel.base.formattedAmount
 import uz.isti.maxtel.base.loadImage
 import uz.isti.maxtel.model.ProductModel
 
@@ -18,7 +17,6 @@ class ProductsAdapter(var list: List<ProductModel>, val handler: ProductsAdapter
         val item = getItem<ProductModel>(position)
         holder.itemView.tvTitle.text = item.name
         holder.itemView.imgProduct.loadImage(App.imageBaseUrl + item.image)
-        holder.itemView.tvPrice.text = item?.price?.formattedAmount()
 
         if (item.cartCount > 0){
             holder.itemView.imgPlus.visibility = View.GONE

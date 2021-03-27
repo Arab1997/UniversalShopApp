@@ -3,7 +3,6 @@ package uz.isti.maxtel.screen.main
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.net.Uri
 import android.view.MenuItem
 import android.view.View
@@ -11,214 +10,159 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.blankj.utilcode.util.NetworkUtils
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottomsheet_language.view.*
 import kotlinx.android.synthetic.main.nav_layout.view.*
-import kotlinx.android.synthetic.main.select_currency_dialog.view.*
 import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import q.rorbin.badgeview.Badge
-import q.rorbin.badgeview.QBadgeView
 import uz.isti.maxtel.BuildConfig
 import uz.isti.maxtel.R
 import uz.isti.maxtel.base.*
 import uz.isti.maxtel.model.*
-import uz.isti.maxtel.model.enum.CurrencyEnum
-import uz.isti.maxtel.screen.auth.SignActivity
 import uz.isti.maxtel.screen.main.aboutapp.AboutAppActivity
-import uz.isti.maxtel.screen.main.actreport.ActReportActivity
-import uz.isti.maxtel.screen.main.cart.CartFragment
-import uz.isti.maxtel.screen.main.favourite.FavouriteFragment
-import uz.isti.maxtel.screen.main.home.HomeFragment
-import uz.isti.maxtel.screen.main.manufacturer.ManufacturerListActivity
+import uz.isti.maxtel.screen.main.statistic.StatisticFragment
 import uz.isti.maxtel.screen.main.news.NewsActivity
-import uz.isti.maxtel.screen.main.orders.fragment.OrdersFragment
-import uz.isti.maxtel.screen.main.profile.ProfileFragment
+import uz.isti.maxtel.screen.main.profile.FaqFragment
 import uz.isti.maxtel.screen.main.profile.edit.ProfileEditActivity
-import uz.isti.maxtel.screen.main.rating.RatingActivity
-import uz.isti.maxtel.screen.main.search.SearchProductActivity
-import uz.isti.maxtel.screen.main.stores.StoresFragment
-import uz.isti.maxtel.screen.main.webview.AppWebViewActivity
+import uz.isti.maxtel.screen.main.oneId.OneIDActivity
+import uz.isti.maxtel.screen.main.category.CategoryFragment
+import uz.isti.maxtel.screen.main.oneId.OneActivity
 import uz.isti.maxtel.screen.splash.SplashActivity
 import uz.isti.maxtel.utils.Constants
-import uz.isti.maxtel.utils.Constants.Companion.EVENT_UPDATE_BASKET
 import uz.isti.maxtel.utils.LocaleManager.setNewLocale
 import uz.isti.maxtel.utils.Prefs
-import uz.isti.maxtel.view.adapter.BaseAdapterListener
-import uz.isti.maxtel.view.adapter.CategoriesAdapter
-import uz.isti.maxtel.view.adapter.SectionsAdapter
-import uz.isti.maxtel.view.custom.SaleFragment
-import java.io.Serializable
 
-class MainActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener, NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun getLayout(): Int = R.layout.activity_main
     lateinit var viewModel: MainViewModel
-    val storesFragment = StoresFragment()
-    val homeFragment = HomeFragment()
-    val favouriteFragment = FavouriteFragment()
-    val cartFragment = CartFragment()
-    val ordersFragment = OrdersFragment()
-    var badge: Badge? = null
+    val home = CategoryFragment()
+    val staticFragment = StatisticFragment()
+    val faqFragment = FaqFragment()
+
 
     override fun initViews() {
-        if (!EventBus.getDefault().isRegistered(this)){
-            EventBus.getDefault().register(this)
-        }
-
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.clientInfoData.observe(this, Observer {
-            Prefs.setClientInfo(it)
-            setClientDataNav()
-        })
-
-        viewModel.cartProductsData.observe(this, Observer {
-            val menu = nav_bottom.menu
-            val item = menu.findItem(R.id.cartFragment)
-            val badge = nav_bottom.getOrCreateBadge(item.itemId)
-            badge.isVisible = it?.count() != 0
-            badge.number = it?.count() ?: 0
-            badge.badgeTextColor = Color.WHITE
-
-            var totalAmount = 0.0
-            it?.forEach {
-                totalAmount += it.cartCount * it.price!!
-            }
-        })
-
-        viewModel.storeInfoData.observe(this, Observer {
-            Prefs.setStoreInfo(it)
-        })
-
         nav_bottom.setOnNavigationItemSelectedListener { item: MenuItem ->
-            if (Prefs.getStore() == null){
-                showWarning("Пожалуйста, сначала выберите склад.")
+          /*  if (Prefs.getStore() == null){
+                showWarning(getString(R.string.agentlik))
                 return@setOnNavigationItemSelectedListener false
-            }
-
+            }*/
             return@setOnNavigationItemSelectedListener when(item.itemId){
-                R.id.homeStores -> {
-                    imgSearch.visibility = View.GONE
-
+               /* R.id.category -> {
                     tvTitle.visibility = View.VISIBLE
-                    edSearch.visibility = View.GONE
-                    if (storesFragment.isAdded && storesFragment.isVisible){
+                    one_id.visibility = View.VISIBLE
 
+                    one_id.setOnClickListener {
+                        startActivity<OneIDActivity>()
+                    }
+                    if (home.isAdded && home.isVisible){
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.container, home)
+                            .commitAllowingStateLoss()
                     }else{
                         hideFragments()
-                        if (!storesFragment.isAdded){
+                        if (!home.isAdded){
                             supportFragmentManager.beginTransaction()
-                                .add(R.id.container, storesFragment)
+                                .add(R.id.container, home)
                                 .commitAllowingStateLoss()
                         }else{
                             supportFragmentManager.beginTransaction()
-                                .show(storesFragment)
+                                .show(home)
+                                .commitAllowingStateLoss()
+                        }
+                    }
+                    true
+                }*/
+               /* R.id.category -> {
+                    one_id.visibility = View.VISIBLE
+
+                    one_id.setOnClickListener {
+                        startActivity<OneIDActivity>()
+                    }
+                    tvTitle.visibility = View.VISIBLE
+                    if (home.isAdded && home.isVisible){
+
+                    }else{
+                        //hideFragments()
+                        if (!home.isAdded){
+                            supportFragmentManager.beginTransaction()
+                                .add(R.id.container, home)
+                                .commitAllowingStateLoss()
+                        }else{
+                            supportFragmentManager.beginTransaction()
+                                .show(home)
+                                .commitAllowingStateLoss()
+                        }
+                    }
+                    true
+                }*/
+
+
+
+
+
+
+
+                R.id.category -> {
+                    one_id.visibility = View.VISIBLE
+
+                    one_id.setOnClickListener {
+                        startActivity<OneActivity>()
+                    }
+                    tvTitle.visibility = View.VISIBLE
+                    if (home.isAdded && home.isVisible){
+
+                    }else{
+                        hideFragments()
+                        if (!home.isAdded){
+                            supportFragmentManager.beginTransaction()
+                                .add(R.id.container, home)
+                                .commitAllowingStateLoss()
+                        }else{
+                            supportFragmentManager.beginTransaction()
+                                .show(home)
                                 .commitAllowingStateLoss()
                         }
                     }
                     true
                 }
-                R.id.homeFragment -> {
-                    imgSearch.setImageResource(R.drawable.ic_search_black_24dp)
-                    imgSearch.visibility = View.VISIBLE
 
-                    imgSearch.setOnClickListener {
-                        startActivity<SearchProductActivity>()
-                    }
-
-                    tvTitle.visibility = View.VISIBLE
-                    edSearch.visibility = View.GONE
-                    if (homeFragment.isAdded && homeFragment.isVisible){
+                R.id.statistic -> {
+                    if (staticFragment.isAdded && staticFragment.isVisible){
 
                     }else{
                         hideFragments()
-                        if (!homeFragment.isAdded){
+                        if (!staticFragment.isAdded){
                             supportFragmentManager.beginTransaction()
-                                .add(R.id.container, homeFragment)
+                                .add(R.id.container, staticFragment)
                                 .commitAllowingStateLoss()
                         }else{
                             supportFragmentManager.beginTransaction()
-                                .show(homeFragment)
+                                .show(staticFragment)
                                 .commitAllowingStateLoss()
                         }
                     }
                     true
                 }
-                R.id.favouriteFragment -> {
-                    imgSearch.setImageResource(R.drawable.ic_search_black_24dp)
-                    imgSearch.visibility = View.VISIBLE
+                 R.id.faq -> {
+                    one_id.visibility = View.VISIBLE
 
-                    imgSearch.setOnClickListener {
-                        startActivity<SearchProductActivity>()
-                    }
-
+                     one_id.setOnClickListener {
+                         startActivity<OneActivity>()
+                     }
                     tvTitle.visibility = View.VISIBLE
-                    edSearch.visibility = View.GONE
-                    if (favouriteFragment.isAdded && favouriteFragment.isVisible){
+                    if (faqFragment.isAdded && faqFragment.isVisible){
 
                     }else{
                         hideFragments()
-                        if (!favouriteFragment.isAdded){
+                        if (!faqFragment.isAdded){
                             supportFragmentManager.beginTransaction()
-                                .add(R.id.container, favouriteFragment)
+                                .add(R.id.container, faqFragment)
                                 .commitAllowingStateLoss()
                         }else{
                             supportFragmentManager.beginTransaction()
-                                .show(favouriteFragment)
-                                .commitAllowingStateLoss()
-                        }
-                    }
-                    true
-                }
-                R.id.cartFragment -> {
-                    imgSearch.setImageResource(R.drawable.ic_clear_black_24dp)
-                    imgSearch.visibility = View.VISIBLE
-                    imgSearch.setOnClickListener {
-                        Prefs.clearCart()
-                        EventBus.getDefault().post(EventModel(Constants.EVENT_UPDATE_BASKET, Prefs.getCartList().count()))
-                    }
-
-                    tvTitle.visibility = View.VISIBLE
-                    edSearch.visibility = View.GONE
-                    if (cartFragment.isAdded && cartFragment.isVisible){
-
-                    }else{
-                        hideFragments()
-                        if (!cartFragment.isAdded){
-                            supportFragmentManager.beginTransaction()
-                                .add(R.id.container, cartFragment)
-                                .commitAllowingStateLoss()
-                        }else{
-                            supportFragmentManager.beginTransaction()
-                                .show(cartFragment)
-                                .commitAllowingStateLoss()
-                        }
-                    }
-                    true
-                }
-                R.id.ordersFragment -> {
-                    imgSearch.visibility = View.GONE
-                    tvTitle.visibility = View.VISIBLE
-                    edSearch.visibility = View.GONE
-                    if (ordersFragment.isAdded && ordersFragment.isVisible){
-
-                    }else{
-                        hideFragments()
-                        if (!ordersFragment.isAdded){
-                            supportFragmentManager.beginTransaction()
-                                .add(R.id.container, ordersFragment)
-                                .commitAllowingStateLoss()
-                        }else{
-                            supportFragmentManager.beginTransaction()
-                                .show(ordersFragment)
+                                .show(faqFragment)
                                 .commitAllowingStateLoss()
                         }
                     }
@@ -237,20 +181,22 @@ class MainActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener, Navig
             drawer.openDrawer(GravityCompat.START)
         }
 
-        tvTitle.text = Prefs.getStore()?.name
-
-        imgSearch.setOnClickListener {
-            startActivity<SearchProductActivity>()
+        //tvTitle.text = getString(R.string.title)
+        one_id.setOnClickListener {
+            startActivity<OneActivity>()
         }
+        /*imgSearch.setOnClickListener {
+            startActivity<SearchProductActivity>()
+        }*/
 
         if (intent.hasExtra(Constants.EXTRA_DATA_START_FRAGMENT)){
-            nav_bottom.selectedItemId = intent.getIntExtra(Constants.EXTRA_DATA_START_FRAGMENT, R.id.homeStores)
+            nav_bottom.selectedItemId = intent.getIntExtra(Constants.EXTRA_DATA_START_FRAGMENT, R.id.category)
         }
-        if (nav_bottom.selectedItemId == R.id.homeStores){
-            pushFragment(R.id.container, storesFragment, storesFragment.tag ?: "")
+        if (nav_bottom.selectedItemId == R.id.category){
+            pushFragment(R.id.container, home, home.tag ?: "")
         }
 
-        setClientDataNav()
+       // setClientDataNav()
 
         NetworkUtils.registerNetworkStatusChangedListener(object: NetworkUtils.OnNetworkStatusChangedListener{
             override fun onConnected(networkType: NetworkUtils.NetworkType?) {
@@ -264,80 +210,15 @@ class MainActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener, Navig
         })
     }
 
-    fun setClientDataNav(){
-        val user = Prefs.getClientInfo()
-        val headerView = navigation.getHeaderView(0)
-        headerView.tvPersonName.text = user?.name
-        headerView.tvPhone.text = user?.phone
-        headerView.imgCurrency.setImageResource(Prefs.getCurrency().getImage())
-        headerView.imgCurrency.setOnClickListener {
-            val bottomSheetDialog = BottomSheetDialog(this, R.style.SheetDialog)
-            val view = layoutInflater.inflate(R.layout.select_currency_dialog, null)
-            bottomSheetDialog.setContentView(view)
-            if (Prefs.getCurrency() == CurrencyEnum.USD){
-                view.imgUSDChecked.visibility = View.VISIBLE
-                view.imgUZSChecked.visibility = View.GONE
-            }else{
-                view.imgUZSChecked.visibility = View.VISIBLE
-                view.imgUSDChecked.visibility = View.GONE
-            }
+    override fun loadData() {
 
-            view.lyUSD.setOnClickListener {
-                Prefs.setCurrency(CurrencyEnum.USD)
-                headerView.imgCurrency.setImageResource(Prefs.getCurrency().getImage())
-                bottomSheetDialog.dismiss()
-                EventBus.getDefault().post(EventModel(EVENT_UPDATE_BASKET, 0))
-            }
-
-            view.lyUZS.setOnClickListener {
-                Prefs.setCurrency(CurrencyEnum.UZS)
-                headerView.imgCurrency.setImageResource(Prefs.getCurrency().getImage())
-                bottomSheetDialog.dismiss()
-                EventBus.getDefault().post(EventModel(EVENT_UPDATE_BASKET, 0))
-            }
-
-            bottomSheetDialog.show()
-        }
-    }
-
-    override fun updateStore() {
-        super.updateStore()
-        viewModel.getStoreInfo()
-        homeFragment.loadData()
-        tvTitle.text = Prefs.getStore()?.name
-
-        tvTitle.visibility = View.VISIBLE
-        edSearch.visibility = View.GONE
-
-        nav_bottom.selectedItemId = R.id.homeFragment
-//        if (homeFragment.isAdded && homeFragment.isVisible){
-//
-//        }else{
-//            hideFragments()
-//            if (!homeFragment.isAdded){
-//                supportFragmentManager.beginTransaction()
-//                    .add(R.id.container, homeFragment)
-//                    .commitAllowingStateLoss()
-//            }else{
-//                supportFragmentManager.beginTransaction()
-//                    .show(homeFragment)
-//                    .commitAllowingStateLoss()
-//            }
-//        }
-//        true
     }
 
     override fun onBackPressed() {
         finish()
     }
 
-    override fun loadData() {
-        viewModel.clientInfo(ClientInfoRequest(fcm_token = Prefs.getFCM() ?: ""))
-        viewModel.getCartProducts()
-        if (Prefs.getStore() != null){
-            viewModel.getStoreInfo()
-        }
-    }
+
 
     override fun initData() {
 
@@ -347,32 +228,9 @@ class MainActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener, Navig
 
     }
 
-    override fun onRefresh() {
-
-    }
-
-    @Subscribe
-    fun onEvent(event: EventModel<Int>){
-        if (event.event == Constants.EVENT_UPDATE_BADGE_COUNT){
-            val menu = nav_bottom.menu
-            val item = menu.findItem(R.id.cartFragment)
-            val badge = nav_bottom.getOrCreateBadge(item.itemId)
-            badge.isVisible = event.data != 0
-            badge.number = event.data
-            badge.badgeTextColor = Color.WHITE
-            loadData()
-        }else if (event.event == Constants.EVENT_LOGOUT){
-            Prefs.clearAll()
-            startClearActivity<SplashActivity>()
-            finish()
-        }
-    }
-
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         if (p0.itemId == R.id.actionNews){
             startActivity<NewsActivity>()
-        }else if (p0.itemId == R.id.actionAct){
-            startActivity<ActReportActivity>()
         }else if (p0.itemId == R.id.actionShareApp){
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
@@ -383,7 +241,10 @@ class MainActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener, Navig
                         + "\n https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}")
 
             startActivity(Intent.createChooser(shareIntent,"Отправить своим друзьям."))
-        }else if(p0.itemId == R.id.actionProfile){
+        }else if(p0.itemId == R.id.murojaat){
+            startActivity<ProfileEditActivity>()
+
+        }else if(p0.itemId == R.id.main){
             startActivity<ProfileEditActivity>()
         }else if(p0.itemId == R.id.actionLogout){
             Prefs.clearAll()
@@ -464,7 +325,7 @@ class MainActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener, Navig
 
     @SuppressLint("MissingPermission")
     fun callPhone(){
-        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "+998 71 200 47 00"))
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "+998 "))
         startActivity(intent)
     }
 }

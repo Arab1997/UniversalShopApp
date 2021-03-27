@@ -14,7 +14,7 @@ class AboutAppActivity : BaseActivity() {
         imgBack.setOnClickListener { finish() }
 
         lyDeveloper.setOnClickListener {
-            startActivityToOpenUrlInBrowser("http://isti.uz")
+            startActivityToOpenUrlInBrowser("")
         }
     }
 

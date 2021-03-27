@@ -1,7 +1,6 @@
 package uz.isti.maxtel.base
 
 import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
@@ -15,7 +14,6 @@ import android.webkit.CookieSyncManager
 import android.webkit.CookieManager
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -23,9 +21,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import es.dmoral.toasty.Toasty
 import uz.isti.maxtel.R
-import uz.isti.maxtel.utils.GlideUtils
 import uz.isti.maxtel.utils.TextUtils
-import java.time.temporal.TemporalAmount
 import java.util.ArrayList
 
 /*
@@ -320,13 +316,6 @@ fun Context.clearCookies() {
     }
 }
 
-fun Double?.formattedAmount(withCurrency: Boolean = true): String{
-    return TextUtils.getFormattedAmount(this, withCurrency)
-}
-
-fun Double?.formattedAmountWithoutRate(withCurrency: Boolean = true, currency: String): String{
-    return TextUtils.getFormattedAmount(this, withCurrency, false, currency)
-}
 
 fun View.getColor(color: Int): Int{
     return ContextCompat.getColor(this.context, color)
@@ -334,7 +323,7 @@ fun View.getColor(color: Int): Int{
 
 fun ImageView.loadImage(url: String?){
     if (url != null){
-        GlideUtils.loadImage(this, url)
+        //GlideUtils.loadImage(this, url)
     }else{
         this.setImageResource(R.drawable.placeholder)
     }

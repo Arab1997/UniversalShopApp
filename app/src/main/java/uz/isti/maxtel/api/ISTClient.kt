@@ -14,6 +14,7 @@ import uz.isti.maxtel.utils.Prefs
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
 import okhttp3.OkHttpClient
+import uz.isti.maxtel.utils.Constants.Companion.BASE_URL
 import java.security.KeyStore
 import java.util.*
 import javax.net.ssl.TrustManagerFactory
@@ -30,7 +31,8 @@ object ISTClient {
             .create()
 
         retrofit = Retrofit.Builder()
-            .baseUrl("http://isti.uz/mobiles/")
+          // .baseUrl("http://isti.uz/mobiles/")
+           .baseUrl(BASE_URL)
             .client(getOkHttpClient(context))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))

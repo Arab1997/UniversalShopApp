@@ -9,7 +9,6 @@ import uz.isti.maxtel.base.*
 import uz.isti.maxtel.model.ClientInfoRequest
 import uz.isti.maxtel.screen.main.MainViewModel
 import uz.isti.maxtel.screen.splash.SplashActivity
-import uz.isti.maxtel.utils.DateUtils
 import uz.isti.maxtel.utils.Prefs
 
 class ProfileEditActivity : BaseActivity() {
@@ -19,11 +18,13 @@ class ProfileEditActivity : BaseActivity() {
     var dateListener: MaskedTextChangedListener? = null
 
     override fun initViews() {
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-
         imgBack.setOnClickListener {
             finish()
         }
+
+       /* viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+
+
 
         viewModel.progressClientInfo.observe(this, Observer {
             setProgress(it)
@@ -66,7 +67,7 @@ class ProfileEditActivity : BaseActivity() {
                 marketName = edStore.text.toString()
             ))
         }
-
+*/
 
     }
 
@@ -77,10 +78,10 @@ class ProfileEditActivity : BaseActivity() {
     override fun initData() {
         val user = Prefs.getClientInfo()
 
-        edPhone.setText(user?.phone)
+       /* edPhone.setText(user?.phone)
         edFullName.setText(user?.name)
-        edStore.setText(user?.marketName)
-        edBirthDay.setText(DateUtils.getDateFromServerTime(user?.date))
+        edStore.setText(user?.marketName)*/
+       // edBirthDay.setText(DateUtils.getDateFromServerTime(user?.date))
 
     }
 

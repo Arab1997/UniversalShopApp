@@ -42,8 +42,7 @@ interface Api {
     @GET("GetSkladInfo")
     fun getStoreInfo(@Query("id") id: String = Prefs.getStore()?.id ?: ""): Observable<BaseResponse<List<StoreModel>?>>
 
-    @POST("PostBron")
-    fun createOrder(@Body request: MakeOrderModel, @Query("token") token: String = Prefs.getToken()): Observable<BaseResponse<PostBronModel?>>
+
 
     @GET("GetBronListKlient")
     fun getOrders(@Query("token") token: String = Prefs.getToken()): Observable<BaseResponse<List<OrderModel>?>>

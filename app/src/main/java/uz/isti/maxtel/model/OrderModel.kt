@@ -17,6 +17,5 @@ data class OrderModel(
     val delivery: Int,
     val deliverySumma: Double,
     val summa: Double,
-    val array: List<MakeOrderProductModel>,
     val dollar: Boolean
 ): Serializable

@@ -15,17 +15,26 @@
             android:layout_width="wrap_content"
             android:layout_height="220dp"
             android:layout_gravity="center"
-            android:scaleType="fitXY"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/gerb"/>
+        <TextView
+            android:id="@+id/titlee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/title"/>
         <TextView
             android:id="@+id/tvVersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:layout_gravity="center"
+            android:gravity="center"
             android:textSize="16sp"
-            android:layout_marginBottom="16dp"
-            android:text="Version: 1.1.1"/>
+            android:layout_marginBottom="16dp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,11 +84,11 @@
             android:textSize="16sp"
             android:text="Created by"/>
 
-        <ImageView
+     <!--   <ImageView
             android:layout_width="150dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/isti_logo"/>
+            android:src="@drawable/isti_logo"/>-->
 
         <TextView
             android:layout_width="wrap_content"
