@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".screen.main.profile.FaqFragment">
+    tools:context=".screen.main.faq.FaqFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:padding="16dp"
             android:orientation="vertical">
 
-            <ImageView
+           <!-- <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_account_circle_black_24dp"
@@ -40,8 +40,49 @@
                 android:gravity="center"
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/black"
-                tools:text="Person Name"/>
+                tools:text="Person Name"/>-->
 
+
+            <TextView
+                android:text="@string/murojaat_matni"
+                android:paddingStart="10dp"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"
+                android:paddingEnd="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                style="@style/EditTextBox"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/edComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:hint="@string/comment" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="26dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardElevation="1dp"
+                app:contentPadding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:text="@string/register_order"/>
+            </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +108,7 @@
                             android:textSize="14sp"
                             android:layout_gravity="center"
                             android:textColor="@color/black"
-                            android:text="@string/your_data"/>
+                            android:text="@string/your_Data"/>
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="25dp"
@@ -81,11 +122,6 @@
                         android:layout_margin="8dp"
                         android:background="@color/gray_text"/>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:background="@color/gray_text"/>
 
                     <LinearLayout
                         android:id="@+id/lyLanguage"

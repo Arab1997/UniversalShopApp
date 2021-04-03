@@ -15,58 +15,64 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:orientation="horizontal"
-                    android:background="@color/background_color"
-                    android:gravity="center_vertical"
-                    android:padding="8dp">
-                    <ImageView
-                        android:id="@+id/imgMore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_menu_black_24dp"
-                        android:tint="@color/colorAccent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tvTitle"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/title"
-                        android:textSize="13sp"
-                        android:textColor="@color/colorAccent"
-                        android:layout_marginLeft="20dp"
-                        android:maxLines="2"
-                        android:ellipsize="end"/>
-                    <ImageView
-                        android:id="@+id/one_id"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="-2dp"
-                        android:visibility="visible"
-                        android:src="@drawable/gerb"/>
-                </LinearLayout>
-                <FrameLayout
-                    android:id="@+id/container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+            <LinearLayout
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/background_color"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_menu_black_24dp"
+                    android:tint="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/title"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/one_id"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-2dp"
+                    android:src="@drawable/one_idd"
+                    android:visibility="visible" />
             </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_bottom"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginBottom="4dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/bottomnavigation_shape"
             android:theme="@style/BottomNavigationView"
             app:itemIconTint="@drawable/nav_selector"
@@ -74,14 +80,69 @@
             app:menu="@menu/nav_menu" />
     </LinearLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:menu="@menu/navigation_menu"
-        app:headerLayout="@layout/nav_layout"
-        android:layout_gravity="start">
+    <!-- <com.google.android.material.navigation.NavigationView
+         android:id="@+id/navigation"
+         android:layout_width="wrap_content"
+         android:layout_height="match_parent"
+         app:menu="@menu/navigation_menu"
+         android:layout_gravity="start"
+         >
+     </com.google.android.material.navigation.NavigationView>-->
 
-    </com.google.android.material.navigation.NavigationView>
+
+    <LinearLayout
+        android:id="@+id/drawer_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/drawer_title"
+            android:layout_width="match_parent"
+            android:layout_height="171dp"
+            android:background="@drawable/prokratura"
+            android:padding="50dp"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        <!--     <com.google.android.material.navigation.NavigationView
+                 android:id="@+id/navigation_view"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="start"
+                 android:clipToPadding="false"
+                 app:menu="@menu/drawer_menu"
+                 />-->
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            app:menu="@menu/navigation_menu"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/gray_text" />
+
+            <TextView
+                android:id="@+id/call"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:text="@string/qo_ng_iroq_markazi_1070"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/gray_text" />
+    </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

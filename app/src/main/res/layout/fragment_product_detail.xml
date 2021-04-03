@@ -6,8 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:id="@+id/design_bottom_sheet"
-    tools:context=".screen.main.product.detail.ProductDetailFragment">
+    android:id="@+id/design_bottom_sheet">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -155,8 +154,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:text="@string/add_button"/>
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/tvTotalAmount"

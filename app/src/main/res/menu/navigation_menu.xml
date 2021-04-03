@@ -17,9 +17,9 @@
         android:id="@+id/actionLanguage"
         android:title="@string/language" />
 
-    <item
+<!--    <item
         android:id="@+id/actionNews"
-        android:title="@string/news" />
+        android:title="@string/news" />-->
 
     <item
         android:id="@+id/actionShareApp"

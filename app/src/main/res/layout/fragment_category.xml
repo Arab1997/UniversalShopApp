@@ -23,7 +23,7 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <TextView
+                     <!--   <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="14sp"
@@ -33,8 +33,8 @@
                             android:paddingRight="16dp"
                             android:paddingTop="2dp"
                             android:textStyle="bold"
-                            android:text="@string/current_store"/>
-                        <TextView
+                            android:text="@string/current_store"/>-->
+                        <!--<TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="13sp"
@@ -43,13 +43,43 @@
                             android:gravity="center"
                             android:paddingRight="16dp"
                             android:paddingTop="2dp"
-                            android:text="@string/murojaat"/>
+                            android:text="@string/murojaat"/>-->
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         >
+                        <TextView
+                            android:id="@+id/tv_no_courses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:padding="10dp"
+                            android:background="@drawable/border_waring"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:fontFamily="@font/google_sans_medium"
+                            android:text="@string/murojaatt"
+                            android:textColor="@color/red"
+                            android:textSize="14sp"
+                            android:visibility="gone" />
+
+                        <com.dx.dxloadingbutton.lib.LoadingButton
+                            android:id="@+id/btn_register"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            app:lb_btnColor="@color/status_sent"
+                            app:lb_btnDisabledColor="@android:color/darker_gray"
+                            app:lb_btnRippleColor="@color/colorAccent"
+                            app:lb_btnText="Авторизация"
+                            app:lb_cornerRadius="32"
+                            app:lb_resetAfterFailed="true"
+                            app:lb_rippleEnable="false" />
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/category_card1"
                             android:layout_width="match_parent"
@@ -75,7 +105,7 @@
                                     android:layout_alignParentTop="true"
                                     android:layout_marginTop="10dp"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/gerb" />
+                                    android:src="@drawable/cat1" />
 
                                 <LinearLayout
                                     android:id="@+id/layout_text1"
@@ -126,7 +156,7 @@
                                     android:layout_alignParentTop="true"
                                     android:layout_marginTop="10dp"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/gerb" />
+                                    android:src="@drawable/cat2" />
 
                                 <LinearLayout
                                     android:id="@+id/layout_text2"
@@ -180,7 +210,7 @@
                                     android:layout_marginStart="0dp"
                                     android:layout_marginTop="10dp"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/gerb" />
+                                    android:src="@drawable/cat3" />
 
                                 <LinearLayout
                                     android:id="@+id/layout_text3"
@@ -233,7 +263,7 @@
                                     android:layout_alignParentTop="true"
                                     android:layout_marginTop="10dp"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/gerb" />
+                                    android:src="@drawable/cat4" />
 
                                 <LinearLayout
                                     android:id="@+id/layout_text"

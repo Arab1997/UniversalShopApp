@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context="uz.isti.maxtel.screen.main.aboutapp.AboutAppActivity">
+    tools:context="uz.group.anticor.screen.main.aboutapp.AboutAppActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
-            android:text="isti.uz"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="16sp"/>
 

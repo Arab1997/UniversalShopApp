@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".screen.main.profile.edit.ProfileEditActivity">
+    tools:context=".screen.main.faq.edit.ProfileEditActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,21 +18,31 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/imgBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow_back_black_24dp" />
-
-            <TextView
-                android:id="@+id/tvTitle"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/your_data"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+                <ImageView
+                    android:id="@+id/imgBackk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/black"
+                    android:src="@drawable/ic_arrow_back_black_24dp"/>
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text=""/>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -40,7 +50,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="12sp"
                 android:layout_marginTop="8dp"
-                android:text="@string/please_help_me"/>
+                android:text=""/>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilPhone"
                 android:layout_width="match_parent"
@@ -84,22 +94,6 @@
                     android:hint="@string/store_or_man_name"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilBirthDay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
-
-                <EditText
-                    android:id="@+id/edBirthDay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/datebirth"
-                    android:inputType="date" />
-            </com.google.android.material.textfield.TextInputLayout>
-
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/btnEdit"

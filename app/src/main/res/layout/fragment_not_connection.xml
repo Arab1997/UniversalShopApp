@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="uz.isti.maxtel.view.custom.NotConnectionFragment">
+    tools:context="uz.group.anticor.view.custom.NotConnectionFragment">
 
 
     <LinearLayout
@@ -29,7 +29,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/white"
-            android:text="Отключение сети. Пожалуйста, проверьте настройки сети."
+            android:text="@string/not_network"
             android:textStyle="bold"/>
     </LinearLayout>
 

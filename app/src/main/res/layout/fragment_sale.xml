@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="uz.isti.maxtel.view.custom.SaleFragment">
+    tools:context="uz.group.anticor.view.custom.SaleFragment">
 
 
     <LinearLayout
@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/you_get_bonus"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />

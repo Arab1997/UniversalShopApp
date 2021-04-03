@@ -1,4 +1,4 @@
-package uz.isti.maxtel
+package uz.group.anticor
 
 import org.junit.Test
 

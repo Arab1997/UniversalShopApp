@@ -17,7 +17,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/gerb"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginTop="30dp"
-            android:text="@string/select_branch"/>
+            android:text="@string/region"/>
 
         <View
             android:layout_width="match_parent"
